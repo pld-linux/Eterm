@@ -42,7 +42,7 @@ LDFLAGS="-s"; export LDFLAGS
 	--enable-shared \
 	--disable-stack-trace \
 	--without-debugging
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
