@@ -47,7 +47,7 @@ install -d $RPM_BUILD_ROOT/usr/X11R6/{bin,lib,man}
 make install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded /usr/X11R6/bin/* /usr/X11R6/lib/* || :
+strip --strip-unneeded $RPM_BUILD_ROOT/usr/X11R6/{bin,lib}/* || :
 
 gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/* \
 	doc/*.html
