@@ -2,7 +2,7 @@ Summary:	Terminal for Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
 Version:	0.8.8
-Release:	1d
+Release:	1
 Copyright:	GPL
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
@@ -61,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Wed Feb  3 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.8.8-1d]
+  [0.8.8-1]
 - changed pl translation,
 - added --without-debugging to ./configure parametrs,
 - updated Requires for imlib (= 1.9.2),
