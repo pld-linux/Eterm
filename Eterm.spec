@@ -13,18 +13,15 @@ Source2:	%{name}.desktop
 Patch0:		%{name}-am_fix.patch
 Patch1:		%{name}-ac253.patch
 URL:		http://www.eterm.org/
+BuildRequires:	autoconf >= 2.53
+BuildRequires:	automake
 BuildRequires:	imlib2-devel >= 1.0.3
 BuildRequires:  libast-devel
 BuildRequires:	libltdl-devel
-BuildRequires:	autoconf >= 2.53
-BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	ncurses
-# for /usr/bin/tic
-Requires:	terminfo-Eterm = %{version}-%{release}
+BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_terminfodir	/usr/share/terminfo
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 
@@ -58,17 +55,6 @@ terminal integrado com o Enlightenment, ou simplesmente
 queiram algo mais agradável para os olhos. O Eterm usa a
 Imlib para trabalhar com gráficos.
 
-%package -n terminfo-%{name}
-Summary:        Terminfo entry for Eterm
-Summary(pl):    Wpis terminfo dla Eterm-a
-Group:          Applications/Terminal
-
-%description -n terminfo-%{name}
-Terminfo entry for Eterm.
-
-%description -n terminfo-%{name} -l pl
-Wpis terminfo dla Eterma.
-
 %prep
 %setup -q -a1
 %patch0 -p1
@@ -99,8 +85,6 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_applnkdir}/Termin
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-(cd doc; /usr/bin/tic -o $RPM_BUILD_ROOT%{_terminfodir} Eterm.ti)
-
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
 
 %clean
@@ -121,7 +105,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_datadir}/Eterm
 %{_applnkdir}/Terminals/*
-
-%files -n terminfo-%{name}
-%defattr(644,root,root,755)
-%{_terminfodir}/*/*
