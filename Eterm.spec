@@ -46,8 +46,8 @@ grafice.
 rm -f missing
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	--with-delete="\033[3~" \
 	--disable-static \
