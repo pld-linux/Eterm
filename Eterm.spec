@@ -65,39 +65,3 @@ rm -rf $RPM_BUILD_ROOT
 /usr/X11R6/man/man1/*
 
 /usr/X11R6/share/Eterm
-
-%changelog
-* Sat Jun 05 1999 Jan Rêkorajski <baggins@pld.org.pl>
-  [0.8.9-1]
-- update to 0.8.9
-	--disable-static
-	--enable-shared
-	--disable-stack-trace
-
-* Tue Feb  9 1999 Micha³ Kuratczyk <kurkens@polbox.com>
-  [0.8.8-2d]
-- added gzipping documentation
-- cosmetic changes
-
-* Wed Feb  3 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.8.8-1d]
-- changed pl translation,
-- added --without-debugging to ./configure parametrs,
-- updated Requires for imlib (= 1.9.2),
-- added patch for proper installing with using $DESTDIR,
-- added Grou(pl).
-
-* Thu Aug 13 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [0.8-3d]
-- updated to Eterm-DR-0.8+PL2,
-- added default background themes,
-- minor modifications of spec file.
-
-* Thu Jul 09 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [0.8-2d]
-- first try at an RPM,
-- build against glibc-2.1,
-- added a utmp.c patch,
-- translation modified for pl,
-- added %changelog,
-- changed prefix to /usr/X11R6.
