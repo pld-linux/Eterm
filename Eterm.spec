@@ -1,17 +1,19 @@
 Summary:	Terminal for Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
-Version:	0.8.10
+Version:	0.9.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Source0:	ftp://ftp.eterm.org/pub/Eterm/%{name}-%{version}.tar.gz
+Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
+Source1: 	http://www.eterm.org/download/Eterm-bg-0.9.1.tar.gz	
 Patch0:		%{name}-features.patch
 Patch1:		%{name}-xterm-color-fixes.patch
 URL:		http://www.eterm.org/
-BuildRequires:	imlib-devel >= 1.9.2
+BuildRequires:	imlib2-devel >= 1.0.3
+BuildRequires:  libast-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -32,9 +34,9 @@ programu. Eterm u¿ywa biblioteki IMlib do zaawansowanego operowania na
 grafice.
 
 %prep
-%setup -q
-%patch0 -p1
-%patch1 -p1
+%setup -q -a1
+#%patch0 -p1
+#%patch1 -p1
 
 %build
 libtoolize --copy --force
@@ -66,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(2755,root,utmp) %{_bindir}/Eterm
 %attr(755,root,root) %{_bindir}/Esetroot
 %attr(755,root,root) %{_bindir}/Etbg
-%attr(755,root,root) %{_bindir}/*.sh
+#%attr(755,root,root) %{_bindir}/*.sh
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man1/*
 %{_datadir}/Eterm
