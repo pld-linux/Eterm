@@ -4,7 +4,7 @@ Summary(es): Eterm versión %{version}
 Summary(pt_BR): Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.1
-Release:	10
+Release:	11
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
@@ -73,6 +73,8 @@ aclocal
 	--enable-shared \
 	--disable-stack-trace \
 	--without-debugging \
+	--enable-trans \
+	--enable-multi-charset \
 %ifarch i686 athlon
 	--enable-mmx
 %else
@@ -102,6 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/Etbg
 %attr(755,root,root) %{_bindir}/Etcolors
 %attr(755,root,root) %{_bindir}/Ettable
+%attr(755,root,root) %{_bindir}/Etbg_update_list
+%attr(755,root,root) %{_bindir}/Etsearch
+%attr(755,root,root) %{_bindir}/kEsetroot
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man1/*
 %{_datadir}/Eterm
