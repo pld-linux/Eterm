@@ -1,0 +1,46 @@
+--- Eterm-0.9.1/configure.in~	Fri Aug 24 02:22:54 2001
++++ Eterm-0.9.1/configure.in	Tue May 28 12:27:08 2002
+@@ -327,32 +328,32 @@
+ dnl#
+ dnl# FEATURES
+ dnl#
+-AC_MSG_CHECKING(if Pablo support is wanted)
++AC_MSG_CHECKING([if Pablo support is wanted])
+ AC_ARG_WITH(pablo,
+ [  --with-pablo[=DIR]      compile with Pablo I/O Tracing support (using Pablo prefix DIR)],
+-            if test "$withval" != "no"; then 
++            [if test "$withval" != "no"; then 
+               AC_MSG_RESULT(yes)
+               if test "$withval" != "yes"; then
+                 CPPFLAGS="$CPPFLAGS -I${withval}/include"
+                 LDFLAGS="$LDFLAGS -L${withval}/lib"
+               fi
+               AC_CHECK_HEADER(IOTrace.h, 
+-                              AC_CHECK_LIB(PabloTraceExt, initIOTrace,
+-                                           AC_DEFINE(IOTRACE)
++                              [AC_CHECK_LIB(PabloTraceExt, initIOTrace,
++                                           [AC_DEFINE(IOTRACE)
+                                            LIBS="$LIBS -lPabloTraceExt -lPabloTrace"
+-                                           echo "Pablo support enabled.  Headers in ${withval}/include.  Libraries in ${withval}/lib."
++                                           echo "Pablo support enabled.  Headers in ${withval}/include.  Libraries in ${withval}/lib."]
+                                            , 
+-                                           echo "*** ERROR:  Pablo support was requested but the Pablo libraries could not be"
++                                           [echo "*** ERROR:  Pablo support was requested but the Pablo libraries could not be"
+                                            echo "***         found.  Please check config.log for further information."
+-                                           echo "***         Pablo support will NOT be included."
+-                                           , -lPabloTrace)
++                                           echo "***         Pablo support will NOT be included."]
++                                           , [-lPabloTrace])]
+                               ,
+-                              echo "*** ERROR:  Pablo support was requested but the Pablo header files could not be"
++                              [echo "*** ERROR:  Pablo support was requested but the Pablo header files could not be"
+                               echo "***         found.  Please check the value you passed to --with-pablo."
+-                              echo "***         Pablo support will NOT be included.")
++                              echo "***         Pablo support will NOT be included."])
+             else
+               AC_MSG_RESULT(no)
+-            fi, AC_MSG_RESULT(no)
++            fi], [AC_MSG_RESULT(no)]
+ )
+ AC_MSG_CHECKING(if profiling macros should be included)
+ AC_ARG_ENABLE(profile,
