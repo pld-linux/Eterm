@@ -9,6 +9,7 @@ Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
 Source1: 	http://www.eterm.org/download/Eterm-bg-0.9.1.tar.gz	
+Source2:	%{name}.desktop
 Patch0:		%{name}-features.patch
 Patch1:		%{name}-xterm-color-fixes.patch
 URL:		http://www.eterm.org/
@@ -55,9 +56,11 @@ autoconf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_applnkdir}/Terminals}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -76,3 +79,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man1/*
 %{_datadir}/Eterm
+%{_applnkdir}/Terminals/*
