@@ -4,7 +4,7 @@ Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.2
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
