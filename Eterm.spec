@@ -37,6 +37,9 @@ grafice.
 %patch1 -p1
 
 %build
+libtoolize --copy --force
+aclocal
+autoconf
 %configure \
 	--disable-static \
 	--enable-shared \
