@@ -47,7 +47,7 @@ rm -f missing
 libtoolize --copy --force
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 %configure \
 	--with-delete="\033[3~" \
 	--disable-static \
