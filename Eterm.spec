@@ -45,18 +45,18 @@ install -d $RPM_BUILD_ROOT/usr/X11R6/{bin,lib,man}
 make install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/*
-gzip -9nf doc/*.html
+gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/* \
+	doc/*.html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc doc/*.html.gz
 
-%attr(755, root, root) /usr/X11R6/bin/*
-%attr(644, root,  man) /usr/X11R6/man/man1/*
+%attr(755,root,root) /usr/X11R6/bin/*
+/usr/X11R6/man/man1/*
 
 /usr/X11R6/share/Eterm
 
