@@ -4,7 +4,7 @@ Summary(es): Eterm versión %{version}
 Summary(pt_BR): Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.1
-Release:	9
+Release:	10
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
@@ -20,6 +20,7 @@ BuildRequires:  libast-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
+Requires:	ncurses >= 5.2-32
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
