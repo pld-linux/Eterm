@@ -2,12 +2,13 @@ Summary:	Terminal for Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
 Version:	0.8.9
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
 Source:		ftp://ftp.enlightenment.org/pub/Eterm/%{name}-%{version}.tar.gz
-Patch:		Eterm-utempter.patch
+Patch0:		Eterm-utempter.patch
+Patch1:		Eterm-features.patch
 Requires:	imlib >= 1.9.2
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -26,7 +27,8 @@ biblioteki IMlib do zaawansowanego operowania na grafice.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s -lutempter" \
