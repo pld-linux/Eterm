@@ -1,10 +1,10 @@
 Summary:	Terminal for Enlightenment
+Summary(es):	Eterm versión %{version}
 Summary(pl):	Terminal dla Enlightenmenta
-Summary(es): Eterm versión %{version}
 Summary(pt_BR): Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.1
-Release:	11
+Release:	12
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
@@ -20,7 +20,7 @@ BuildRequires:  libast-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
-Requires:	ncurses >= 5.2-32
+BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -68,7 +68,6 @@ aclocal
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-delete="\033[3~" \
 	--disable-static \
 	--enable-shared \
 	--disable-stack-trace \
@@ -99,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/*.html ReleaseNotes* ChangeLog
-%attr(2755,root,utmp) %{_bindir}/Eterm
+%attr(755,root,root) %{_bindir}/Eterm
 %attr(755,root,root) %{_bindir}/Esetroot
 %attr(755,root,root) %{_bindir}/Etbg
 %attr(755,root,root) %{_bindir}/Etcolors
