@@ -3,10 +3,10 @@ Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
 Version:	0.8.10
 Release:	1
-Copyright:	GPL
+License:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
-Source:		ftp://ftp.eterm.org/pub/Eterm/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.eterm.org/pub/Eterm/%{name}-%{version}.tar.gz
 Patch0:		Eterm-features.patch
 Patch1:		Eterm-xterm-color-fixes.patch
 URL:		http://www.eterm.org/
@@ -17,17 +17,18 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 
 %description
-Eterm is a color vt102 terminal emulator intended as an xterm(1) replacement
-for users who want a term program integrated with Enlightenment, or simply
-want a little more "eye candy". Eterm uses Imlib for advanced graphic
-abilities.
+Eterm is a color vt102 terminal emulator intended as an xterm(1)
+replacement for users who want a term program integrated with
+Enlightenment, or simply want a little more "eye candy". Eterm uses
+Imlib for advanced graphic abilities.
 
 %description -l pl
-Eterm jest kolorowym emulatorem terminala vt102 mogacym byæ zamiennikiem
-xterm(1) dla u¿ytkowników chc±cych mieæ program terminalowy zintegrowany z
-zarz±dc± okienek o nazwie Enlightenment lub dla tych którzy chc± mieæ 
-trochê bardziej urozmaicony wygl±d tego typu programu. Eterm u¿ywa
-biblioteki IMlib do zaawansowanego operowania na grafice.
+Eterm jest kolorowym emulatorem terminala vt102 mogacym byæ
+zamiennikiem xterm(1) dla u¿ytkowników chc±cych mieæ program
+terminalowy zintegrowany z zarz±dc± okienek o nazwie Enlightenment lub
+dla tych którzy chc± mieæ trochê bardziej urozmaicony wygl±d tego typu
+programu. Eterm u¿ywa biblioteki IMlib do zaawansowanego operowania na
+grafice.
 
 %prep
 %setup -q
