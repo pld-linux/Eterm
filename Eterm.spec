@@ -131,6 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*
 
 %files -n Esetroot
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/Esetroot
 %attr(755,root,root) %{_bindir}/kEsetroot
  
