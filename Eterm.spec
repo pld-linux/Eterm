@@ -1,5 +1,5 @@
 Summary:	Terminal for Enlightenment
-Summary(es):	Eterm versión %{version}
+Summary(es):	Terminal para Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
@@ -38,11 +38,11 @@ Enlightenment, or simply want a little more "eye candy". Eterm uses
 Imlib for advanced graphic abilities.
 
 %description -l es
-Eterm -- versión %{version} -- es un emulador de terminal vt102 con
-soporte para colores, desarrollado como un sustituto para el emulador
-xterm, para los usuarios que deseen un emulador de terminal integrado
-con la iluminación, o simplemente deseen algo más agradable
-visualmente. El emulador Eterm usa Imlib para trabajar con gráficos.
+Eterm es un emulador de terminal vt102 con soporte para colores,
+desarrollado como un sustituto para el emulador xterm, para los
+usuarios que deseen un emulador de terminal integrado con la
+iluminación, o simplemente deseen algo más agradable visualmente. El
+emulador Eterm usa Imlib para trabajar con gráficos.
 
 %description -l pl
 Eterm jest kolorowym emulatorem terminala vt102 mog±cym byæ
