@@ -14,6 +14,7 @@ Patch1:		%{name}-xterm-color-fixes.patch
 URL:		http://www.eterm.org/
 BuildRequires:	imlib2-devel >= 1.0.3
 BuildRequires:  libast-devel
+BuildRequires:	libltdl-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
