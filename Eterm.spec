@@ -11,7 +11,7 @@ Patch0:		Eterm-features.patch
 Patch1:		Eterm-xterm-color-fixes.patch
 URL:		http://www.eterm.org/
 BuildRequires:	imlib-devel >= 1.9.2
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
