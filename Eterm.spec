@@ -27,6 +27,7 @@ BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	pcre-devel
 BuildRequires:	screen
+BuildRequires:	sed >= 4.0
 BuildRequires:	twin-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
