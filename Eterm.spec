@@ -3,8 +3,8 @@ Summary(es):	Eterm versión %{version}
 Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
-Version:	0.9.1
-Release:	12
+version:	0.9.2
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
@@ -16,7 +16,7 @@ URL:		http://www.eterm.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	imlib2-devel >= 1.0.3
-BuildRequires:	libast-devel
+BuildRequires:	libast-devel >= 0.5
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
@@ -57,7 +57,6 @@ olhos. O Eterm usa a Imlib para trabalhar com gráficos.
 %prep
 %setup -q -a1
 %patch0 -p1
-%patch1 -p1
 
 %build
 rm -f missing
@@ -105,6 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/Etsearch
 %attr(755,root,root) %{_bindir}/kEsetroot
 %attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_mandir}/man1/*
 %{_datadir}/Eterm
 %{_applnkdir}/Terminals/*
