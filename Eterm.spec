@@ -5,7 +5,7 @@ Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.3
 Release:	1
-License:	GPL
+License:	BSD
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
 # Source0-md5:	dd089fa7768f945341d721dd4942c702
@@ -77,7 +77,7 @@ korzystanie z pseudo-przezroczysto¶ci.
 %patch1 -p1
 %patch2	-p1
 find themes/ -name "*.cfg*" -exec \
-	sed -i 's/<Eterm-0\.9\..>/<Eterm-0.9.3>/' "{}" ";"
+	sed -i 's/<Eterm-0\.9\..>/<Eterm-%{version}>/' "{}" ";"
 
 %build
 rm -f missing
