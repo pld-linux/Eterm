@@ -1,0 +1,33 @@
+--- Eterm/src/feature.h.in~	Wed Mar 24 04:30:28 1999
++++ Eterm/src/feature.h.in	Sat Jun 19 20:28:25 1999
+@@ -214,9 +214,9 @@
+ 
+ /* Force the delete key to send ^? instead of ESC [ 3 ~ */
+ /* #define KS_DELETE "\177" */
+-#ifndef NO_DELETE_KEY
+-# define KS_DELETE "\177"
+-#endif
++/* #ifndef NO_DELETE_KEY */
++/* # define KS_DELETE "\177" */
++/* #endif */
+ 
+ /* Force the Backspace key to send ^H instead of checking the stty setting */
+ #define FORCE_BACKSPACE
+@@ -250,7 +250,7 @@
+ /* #define NO_SCROLLBAR_REPORT */
+ 
+ /* Set the default number of lines in the scrollback buffer */
+-/* #define SAVELINES 256 */
++#define SAVELINES 1024
+ 
+ /* Set the default separator characters for double-click word selection */
+ #define CUTCHARS "\"&'()*,;<=>?@[\\]^`{|}~ \t"
+@@ -355,7 +355,7 @@
+ /* #define XTERM_COLOR_CHANGE */
+ 
+ /* Exports TERM=xterm-color instead of just TERM=xterm */
+-/* #define DEFINE_XTERM_COLOR */
++#define DEFINE_XTERM_COLOR
+ 
+ /* Disable automatic de-iconify on bell altogether */
+ /* #define NO_MAPALERT */
