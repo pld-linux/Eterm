@@ -2,7 +2,7 @@
 Name=ETerm
 Comment=Enlightened Terminal Emulator for X Window
 Comment[pl]=Emulator terminala dla Systemu X Window dostosowany do Enlightenment-a
-Exec=aterm
+Exec=Eterm
 Icon=gnome-eterm.png
 Terminal=0
 Type=Application
