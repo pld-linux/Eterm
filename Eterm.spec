@@ -71,8 +71,6 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_applnkdir}/Termin
 
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
 
-gzip -9nf ReleaseNotes* ChangeLog
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -81,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*.html *.gz
+%doc doc/*.html ReleaseNotes* ChangeLog
 %attr(2755,root,utmp) %{_bindir}/Eterm
 %attr(755,root,root) %{_bindir}/Esetroot
 %attr(755,root,root) %{_bindir}/Etbg
