@@ -4,13 +4,14 @@ Summary(es): Eterm versión %{version}
 Summary(pt_BR): Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.1
-Release:	6
+Release:	7
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
 Source1: 	http://www.eterm.org/download/Eterm-bg-0.9.1.tar.gz	
 Source2:	%{name}.desktop
 Patch0:		%{name}-am_fix.patch
+Patch1:		%{name}-ac253.patch
 URL:		http://www.eterm.org/
 BuildRequires:	imlib2-devel >= 1.0.3
 BuildRequires:  libast-devel
@@ -59,6 +60,7 @@ Imlib para trabalhar com gráficos.
 %prep
 %setup -q -a1
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
