@@ -4,7 +4,7 @@ Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.2
-Release:	9
+Release:	10
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
@@ -15,6 +15,7 @@ Source2:	%{name}.desktop
 Source3:	Escreen.desktop
 Patch0:		%{name}-am_fix.patch
 Patch1:		%{name}-twin.patch
+Patch2:		%{name}-keys-theme.patch
 URL:		http://www.eterm.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
@@ -72,6 +73,7 @@ korzystanie z pseudo-przezroczysto¶ci.
 %setup -q -a1
 %patch0 -p1
 %patch1 -p1
+%patch2	-p1
 
 %build
 rm -f missing
