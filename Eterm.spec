@@ -8,7 +8,9 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
+# Source0-md5:	e8c82cf52b25fdd51d16ff76b993ba68
 Source1:	http://www.eterm.org/download/%{name}-bg-%{version}.tar.gz
+# Source1-md5:	fb465e84f24de348e31bb9fd4d430071
 Source2:	%{name}.desktop
 Patch0:		%{name}-am_fix.patch
 Patch1:		%{name}-ac253.patch
