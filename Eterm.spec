@@ -4,7 +4,7 @@ Summary(es): Eterm versión %{version}
 Summary(pt_BR): Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.1
-Release:	8
+Release:	9
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
@@ -21,6 +21,7 @@ BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	ncurses
 # for /usr/bin/tic
+Requires:	terminfo-Eterm = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_terminfodir	/usr/share/terminfo
@@ -56,6 +57,17 @@ para o xterm, para os usuários que queiram um emulador de
 terminal integrado com o Enlightenment, ou simplesmente
 queiram algo mais agradável para os olhos. O Eterm usa a
 Imlib para trabalhar com gráficos.
+
+%package -n terminfo-%{name}
+Summary:        Terminfo entry for Eterm
+Summary(pl):    Wpis terminfo dla Eterm-a
+Group:          Applications/Terminal
+
+%description -n terminfo-%{name}
+Terminfo entry for Eterm.
+
+%description -n terminfo-%{name} -l pl
+Wpis terminfo dla Eterma.
 
 %prep
 %setup -q -a1
@@ -109,4 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_datadir}/Eterm
 %{_applnkdir}/Terminals/*
+
+%files -n terminfo-%{name}
+%defattr(644,root,root,755)
 %{_terminfodir}/*/*
