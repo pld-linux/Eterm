@@ -4,7 +4,7 @@ Summary(es): Eterm versión %{version}
 Summary(pt_BR): Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.1
-Release:	7
+Release:	8
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
