@@ -2,7 +2,7 @@ Summary:	Terminal for Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
 Version:	0.9.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -51,7 +51,12 @@ autoconf
 	--disable-static \
 	--enable-shared \
 	--disable-stack-trace \
-	--without-debugging
+	--without-debugging \
+%ifarch i686
+	--enable-mmx
+%else
+	--disable-mmx
+%endif
 %{__make}
 
 %install
@@ -75,7 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(2755,root,utmp) %{_bindir}/Eterm
 %attr(755,root,root) %{_bindir}/Esetroot
 %attr(755,root,root) %{_bindir}/Etbg
-#%attr(755,root,root) %{_bindir}/*.sh
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man1/*
 %{_datadir}/Eterm
