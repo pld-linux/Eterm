@@ -4,7 +4,7 @@ Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.2
-Release:	6
+Release:	8
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
@@ -12,6 +12,7 @@ Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
 Source1:	http://www.eterm.org/download/%{name}-bg-%{version}.tar.gz
 # Source1-md5:	fb465e84f24de348e31bb9fd4d430071
 Source2:	%{name}.desktop
+Source3:	Escreen.desktop
 Patch0:		%{name}-am_fix.patch
 Patch1:		%{name}-twin.patch
 URL:		http://www.eterm.org/
@@ -104,6 +105,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_desktopdir}}
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE3} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
