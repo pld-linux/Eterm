@@ -4,7 +4,7 @@ Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
@@ -69,6 +69,7 @@ rm -f missing
 	--enable-shared \
 	--enable-escreen \
 	--enable-etwin \
+	--enable-profile \
 	--disable-stack-trace \
 	--without-debugging \
 	--enable-trans \
