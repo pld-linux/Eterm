@@ -12,6 +12,7 @@ Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
 Source1:	http://www.eterm.org/download/%{name}-bg-%{version}.tar.gz
 # Source1-md5:	fb465e84f24de348e31bb9fd4d430071
 Source2:	%{name}.desktop
+Source3:	Escreen.desktop
 Patch0:		%{name}-am_fix.patch
 Patch1:		%{name}-twin.patch
 URL:		http://www.eterm.org/
@@ -26,6 +27,9 @@ BuildRequires:	screen
 BuildRequires:	twin-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_prefix		/usr/X11R6
+%define		_desktopdir	%{_applnkdir}/Terminals
 
 %description
 Eterm is a color vt102 terminal emulator intended as an xterm(1)
@@ -104,6 +108,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_desktopdir}}
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE3} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
