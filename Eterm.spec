@@ -56,7 +56,7 @@ automake -a -c
 	--enable-shared \
 	--disable-stack-trace \
 	--without-debugging \
-%ifarch i686
+%ifarch i686 athlon
 	--enable-mmx
 %else
 	--disable-mmx
