@@ -2,7 +2,7 @@ Summary:	Terminal for Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
 Version:	0.9.1
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
