@@ -16,7 +16,7 @@ URL:		http://www.eterm.org/
 BuildRequires:	imlib2-devel >= 1.0.3
 BuildRequires:  libast-devel
 BuildRequires:	libltdl-devel
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	ncurses
