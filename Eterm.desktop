@@ -7,4 +7,5 @@ Exec=Eterm
 Icon=gnome-eterm.png
 Terminal=false
 Type=Application
+Categories=Application;TerminalEmulator;
 # vi: encoding=utf-8
