@@ -36,7 +36,6 @@ grafice.
 %patch1 -p1
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--disable-static \
 	--enable-shared \
@@ -49,10 +48,6 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
