@@ -7,6 +7,7 @@ Copyright:	GPL
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
 Source:		ftp://ftp.enlightenment.org/pub/Eterm/%{name}-%{version}.tar.gz
+Patch:		Eterm-utempter.patch
 Requires:	imlib >= 1.9.2
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -25,12 +26,12 @@ biblioteki IMlib do zaawansowanego operowania na grafice.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s -lutempter" \
 ./configure %{_target_platform} \
 	--prefix=/usr/X11R6 \
-	--with-imlib=/usr/X11R6 \
 	--disable-static \
 	--enable-shared \
 	--disable-stack-trace \
