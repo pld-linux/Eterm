@@ -67,6 +67,8 @@ rm -f missing
 %configure \
 	--disable-static \
 	--enable-shared \
+	--enable-escreen \
+	--enable-etwin \
 	--disable-stack-trace \
 	--without-debugging \
 	--enable-trans \
