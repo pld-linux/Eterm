@@ -30,7 +30,7 @@ biblioteki IMlib do zaawansowanego operowania na grafice.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
+./configure %{_target} \
 	--prefix=/usr/X11R6 \
 	--with-imlib=/usr/X11R6 \
 	--enable-static \
