@@ -1,14 +1,13 @@
 Summary:	Terminal for Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
-Version:	0.8.8
-Release:	2d
+Version:	0.8.9
+Release:	1
 Copyright:	GPL
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
 Source:		ftp://ftp.enlightenment.org/pub/Eterm/%{name}-%{version}.tar.gz
-Patch:		Eterm-DESTDIR.patch
-Requires:	imlib = 1.9.2
+Requires:	imlib >= 1.9.2
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -26,15 +25,15 @@ biblioteki IMlib do zaawansowanego operowania na grafice.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
 ./configure %{_target_platform} \
 	--prefix=/usr/X11R6 \
 	--with-imlib=/usr/X11R6 \
-	--enable-static \
-	--disable-shared \
+	--disable-static \
+	--enable-shared \
+	--disable-stack-trace \
 	--without-debugging
 make
 
@@ -56,11 +55,22 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/*.html.gz
 
 %attr(755,root,root) /usr/X11R6/bin/*
+%attr(755,root,root) /usr/X11R6/lib/libEterm.so.0.8.9
+%attr(755,root,root) /usr/X11R6/lib/libmej.so.0.8.9
+/usr/X11R6/lib/libEterm.so.0
+/usr/X11R6/lib/libmej.so.0
 /usr/X11R6/man/man1/*
 
 /usr/X11R6/share/Eterm
 
 %changelog
+* Sat Jun 05 1999 Jan Rêkorajski <baggins@pld.org.pl>
+  [0.8.9-1]
+- update to 0.8.9
+	--disable-static
+	--enable-shared
+	--disable-stack-trace
+
 * Tue Feb  9 1999 Micha³ Kuratczyk <kurkens@polbox.com>
   [0.8.8-2d]
 - added gzipping documentation
