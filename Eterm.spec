@@ -4,7 +4,7 @@ Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
@@ -54,6 +54,18 @@ para os usuários que queiram um emulador de terminal integrado com o
 Enlightenment, ou simplesmente queiram algo mais agradável para os
 olhos. O Eterm usa a Imlib para trabalhar com gráficos.
 
+%package -n Esetroot
+Summary:	Sets root pixmap
+Summary(pl):	Aplikacja ustawiaj±ca t³o nadrzêdnego okna
+Group:		X11/Window Managers/Tools
+ 
+%description -n Esetroot
+This program enables non-Enlightenment users to use pseudotransparency.
+
+%description -n Esetroot -l pl
+Program ten umo¿liwia u¿ytkownikom zarz±dców okien innych ni¿ Enlightenment
+korzystanie z pseudo-przezroczysto¶ci.
+
 %prep
 %setup -q -a1
 %patch0 -p1
@@ -74,7 +86,7 @@ rm -f missing
 	--without-debugging \
 	--enable-trans \
 	--enable-multi-charset \
-%ifarch i686 athlon
+%ifarch athlon
 	--enable-mmx
 %else
 	--disable-mmx
@@ -100,15 +112,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc/*.html ReleaseNotes* ChangeLog
 %attr(755,root,root) %{_bindir}/Eterm
-%attr(755,root,root) %{_bindir}/Esetroot
 %attr(755,root,root) %{_bindir}/Etbg
 %attr(755,root,root) %{_bindir}/Etcolors
 %attr(755,root,root) %{_bindir}/Ettable
 %attr(755,root,root) %{_bindir}/Etbg_update_list
 %attr(755,root,root) %{_bindir}/Etsearch
-%attr(755,root,root) %{_bindir}/kEsetroot
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_mandir}/man1/*
 %{_datadir}/Eterm
 %{_applnkdir}/Terminals/*
+
+%files -n Esetroot
+%attr(755,root,root) %{_bindir}/Esetroot
+%attr(755,root,root) %{_bindir}/kEsetroot
+ 
