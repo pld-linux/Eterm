@@ -23,6 +23,7 @@ BuildRequires:	ncurses-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_prefix		/usr/X11R6
 
 %description
 Eterm is a color vt102 terminal emulator intended as an xterm(1)
