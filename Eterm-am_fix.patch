@@ -1,0 +1,10 @@
+--- ./configure.in.org	Fri Aug 24 02:22:54 2001
++++ ./configure.in	Fri Jan 25 22:16:04 2002
+@@ -82,6 +82,7 @@
+ AC_ARG_PROGRAM
+ 
+ AM_PROG_LIBTOOL
++AM_PROG_AS
+ 
+ dnl# Where are we?
+ AC_MSG_CHECKING(for distribution root)
