@@ -2,7 +2,7 @@ Summary:	Terminal for Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
 Version:	0.9.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
@@ -10,8 +10,6 @@ Group(pl):	X11/Aplikacje
 Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
 Source1: 	http://www.eterm.org/download/Eterm-bg-0.9.1.tar.gz	
 Source2:	%{name}.desktop
-Patch0:		%{name}-features.patch
-Patch1:		%{name}-xterm-color-fixes.patch
 URL:		http://www.eterm.org/
 BuildRequires:	imlib2-devel >= 1.0.3
 BuildRequires:  libast-devel
@@ -19,8 +17,11 @@ BuildRequires:	libltdl-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
+BuildRequires:	ncurses
+# for /usr/bin/tic
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_terminfodir	/usr/share/terminfo
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 
@@ -40,14 +41,13 @@ grafice.
 
 %prep
 %setup -q -a1
-#%patch0 -p1
-#%patch1 -p1
 
 %build
 libtoolize --copy --force
 aclocal
 autoconf
 %configure \
+	--with-delete="\033[3~" \
 	--disable-static \
 	--enable-shared \
 	--disable-stack-trace \
@@ -61,11 +61,15 @@ autoconf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_applnkdir}/Terminals}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_applnkdir}/Terminals,%{_terminfodir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
+(cd doc; /usr/bin/tic -o $RPM_BUILD_ROOT%{_terminfodir} Eterm.ti)
+
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
+
+gzip -9nf ReleaseNotes* ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -75,12 +79,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*.html
-
+%doc doc/*.html *.gz
 %attr(2755,root,utmp) %{_bindir}/Eterm
 %attr(755,root,root) %{_bindir}/Esetroot
 %attr(755,root,root) %{_bindir}/Etbg
+%attr(755,root,root) %{_bindir}/Etcolors
+%attr(755,root,root) %{_bindir}/Ettable
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man1/*
 %{_datadir}/Eterm
 %{_applnkdir}/Terminals/*
+%{_terminfodir}/*/*
