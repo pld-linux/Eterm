@@ -1,19 +1,20 @@
 Summary:	Terminal for Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
-Version:	0.8.9
-Release:	2
+Version:	0.8.10
+Release:	1
 Copyright:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
-Source:		ftp://ftp.enlightenment.org/pub/Eterm/%{name}-%{version}.tar.gz
-Patch0:		Eterm-utempter.patch
-Patch1:		Eterm-features.patch
-Requires:	imlib >= 1.9.2
+Source:		ftp://ftp.eterm.org/pub/Eterm/%{name}-%{version}.tar.gz
+Patch0:		Eterm-features.patch
+Patch1:		Eterm-xterm-color-fixes.patch
+URL:		http://www.eterm.org/
+BuildRequires:	imlib-devel >= 1.9.2
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_prefix		/usr/X11R6
-%define		_mandir		/usr/X11R6/man
+%define		_mandir		%{_prefix}/man
 
 %description
 Eterm is a color vt102 terminal emulator intended as an xterm(1) replacement
@@ -34,9 +35,8 @@ biblioteki IMlib do zaawansowanego operowania na grafice.
 %patch1 -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s -lutempter" \
-./configure %{_target_platform} \
-	--prefix=%{_prefix} \
+LDFLAGS="-s"; export LDFLAGS
+%configure \
 	--disable-static \
 	--enable-shared \
 	--disable-stack-trace \
@@ -47,24 +47,26 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir}}
 
-make install \
-	DESTDIR=$RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT{%{_bindir},%{_mandir}}/* || :
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %doc doc/*.html
 
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/libEterm.so.0.8.9
-%attr(755,root,root) %{_libdir}/libmej.so.0.8.9
-%{_libdir}/libEterm.so.0
-%{_libdir}/libmej.so.0
+%attr(2755,root,utmp) %{_bindir}/Eterm
+%attr(755,root,root) %{_bindir}/Esetroot
+%attr(755,root,root) %{_bindir}/Etbg
+%attr(755,root,root) %{_bindir}/*.sh
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man1/*
 %{_datadir}/Eterm
