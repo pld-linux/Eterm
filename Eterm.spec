@@ -41,7 +41,7 @@ deseen algo más agradable visualmente. El emulador Eterm usa
 Imlib para trabajar con gráficos.
 
 %description -l pl
-Eterm jest kolorowym emulatorem terminala vt102 mogacym byæ
+Eterm jest kolorowym emulatorem terminala vt102 mog±cym byæ
 zamiennikiem xterm(1) dla u¿ytkowników chc±cych mieæ program
 terminalowy zintegrowany z zarz±dc± okienek o nazwie Enlightenment lub
 dla tych którzy chc± mieæ trochê bardziej urozmaicony wygl±d tego typu
