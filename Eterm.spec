@@ -19,11 +19,13 @@ Patch2:		%{name}-keys-theme.patch
 URL:		http://www.eterm.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
+BuildRequires:	freetype1-devel
 BuildRequires:	imlib2-devel >= 1.0.3
 BuildRequires:	libast-devel >= 0.5
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
+BuildRequires:	pcre-devel
 BuildRequires:	screen
 BuildRequires:	twin-devel
 BuildRequires:	utempter-devel
