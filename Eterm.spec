@@ -3,14 +3,14 @@ Summary(es):	Terminal para Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
-Version:	0.9.2
-Release:	10
+Version:	0.9.3
+Release:	0.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	e8c82cf52b25fdd51d16ff76b993ba68
+# Source0-md5:	dd089fa7768f945341d721dd4942c702
 Source1:	http://www.eterm.org/download/%{name}-bg-%{version}.tar.gz
-# Source1-md5:	fb465e84f24de348e31bb9fd4d430071
+# Source1-md5:	e8c6567b13d7fb760bded56c1d1a181d
 Source2:	%{name}.desktop
 Source3:	Escreen.desktop
 Patch0:		%{name}-am_fix.patch
@@ -76,6 +76,8 @@ korzystanie z pseudo-przezroczysto¶ci.
 %patch0 -p1
 %patch1 -p1
 %patch2	-p1
+find themes/ -name "*.cfg*" -exec \
+	sed -i 's/<Eterm-0\.9\..>/<Eterm-0.9.3>/' "{}" ";"
 
 %build
 rm -f missing
