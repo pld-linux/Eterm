@@ -4,11 +4,12 @@ Name:		Eterm
 Version:	0.8.10
 Release:	1
 License:	GPL
-Group:		X11/Utilities
-Group(pl):	X11/Narzêdzia
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
 Source0:	ftp://ftp.eterm.org/pub/Eterm/%{name}-%{version}.tar.gz
-Patch0:		Eterm-features.patch
-Patch1:		Eterm-xterm-color-fixes.patch
+Patch0:		%{name}-features.patch
+Patch1:		%{name}-xterm-color-fixes.patch
 URL:		http://www.eterm.org/
 BuildRequires:	imlib-devel >= 1.9.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
