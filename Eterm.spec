@@ -2,12 +2,12 @@ Summary:	Terminal for Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Name:		Eterm
 Version:	0.8.8
-Release:	1d
+Release:	2d
 Copyright:	GPL
 Group:		X11/Applications
 Group(pl):	X11/Aplikacje
 Source:		ftp://ftp.enlightenment.org/pub/Eterm/%{name}-%{version}.tar.gz
-Patch0:		Eterm-DESTDIR.patch
+Patch:		Eterm-DESTDIR.patch
 Requires:	imlib = 1.9.2
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -26,7 +26,7 @@ biblioteki IMlib do zaawansowanego operowania na grafice.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -p1
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
@@ -46,13 +46,14 @@ make install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/*
+gzip -9nf doc/*.html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644, root, root, 755)
-%doc doc/*.html
+%doc doc/*.html.gz
 
 %attr(755, root, root) /usr/X11R6/bin/*
 %attr(644, root,  man) /usr/X11R6/man/man1/*
@@ -60,6 +61,11 @@ rm -rf $RPM_BUILD_ROOT
 /usr/X11R6/share/Eterm
 
 %changelog
+* Tue Feb  9 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+  [0.8.8-2d]
+- added gzipping documentation
+- cosmetic changes
+
 * Wed Feb  3 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.8.8-1d]
 - changed pl translation,
