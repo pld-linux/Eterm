@@ -8,3 +8,13 @@
  
  dnl# Where are we?
  AC_MSG_CHECKING(for distribution root)
+--- Eterm-0.9.1/src/Makefile.am~	Wed May 29 17:20:50 2002
++++ Eterm-0.9.1/src/Makefile.am	Wed May 29 17:20:50 2002
+@@ -20,6 +20,7 @@
+ if HAVE_MMX
+ libEterm_la_DEPENDENCIES = feature.h $(MMX_OBJS)
+ libEterm_la_LIBADD = $(MMX_OBJS)
++AM_CCASFLAGS = $(DEFAULT_INCLUDES)
+ else
+ libEterm_la_DEPENDENCIES = feature.h
+ endif
