@@ -1,14 +1,14 @@
 Summary:	Terminal for Enlightenment
 Summary(es):	Eterm versión %{version}
 Summary(pl):	Terminal dla Enlightenmenta
-Summary(pt_BR): Eterm versão %{version}
+Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.1
 Release:	12
 License:	GPL
 Group:		X11/Applications
-Source0:	http://www.eterm.org/download/Eterm-0.9.1.tar.gz	
-Source1: 	http://www.eterm.org/download/Eterm-bg-0.9.1.tar.gz	
+Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
+Source1:	http://www.eterm.org/download/%{name}-bg-%{version}.tar.gz
 Source2:	%{name}.desktop
 Patch0:		%{name}-am_fix.patch
 Patch1:		%{name}-ac253.patch
@@ -16,7 +16,7 @@ URL:		http://www.eterm.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	imlib2-devel >= 1.0.3
-BuildRequires:  libast-devel
+BuildRequires:	libast-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
@@ -33,12 +33,11 @@ Enlightenment, or simply want a little more "eye candy". Eterm uses
 Imlib for advanced graphic abilities.
 
 %description -l es
-Eterm -- versión %{version} -- es un emulador de terminal
-vt102 con soporte para colores, desarrollado como un sustituto
-para el emulador xterm, para los usuarios que deseen un emulador de
-terminal integrado con la iluminación, o simplemente
-deseen algo más agradable visualmente. El emulador Eterm usa
-Imlib para trabajar con gráficos.
+Eterm -- versión %{version} -- es un emulador de terminal vt102 con
+soporte para colores, desarrollado como un sustituto para el emulador
+xterm, para los usuarios que deseen un emulador de terminal integrado
+con la iluminación, o simplemente deseen algo más agradable
+visualmente. El emulador Eterm usa Imlib para trabajar con gráficos.
 
 %description -l pl
 Eterm jest kolorowym emulatorem terminala vt102 mog±cym byæ
@@ -49,12 +48,11 @@ programu. Eterm u¿ywa biblioteki IMlib do zaawansowanego operowania na
 grafice.
 
 %description -l pt_BR
-O Eterm -- versão %{version} -- é um emulador de terminal
-vt102 com suporte a cores, desenvolvido para ser um substituto
-para o xterm, para os usuários que queiram um emulador de
-terminal integrado com o Enlightenment, ou simplesmente
-queiram algo mais agradável para os olhos. O Eterm usa a
-Imlib para trabalhar com gráficos.
+O Eterm -- versão %{version} -- é um emulador de terminal vt102 com
+suporte a cores, desenvolvido para ser um substituto para o xterm,
+para os usuários que queiram um emulador de terminal integrado com o
+Enlightenment, ou simplesmente queiram algo mais agradável para os
+olhos. O Eterm usa a Imlib para trabalhar com gráficos.
 
 %prep
 %setup -q -a1
