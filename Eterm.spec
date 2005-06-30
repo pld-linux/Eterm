@@ -4,7 +4,7 @@ Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.3
-Release:	1
+Release:	2
 License:	BSD
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
@@ -13,9 +13,12 @@ Source1:	http://www.eterm.org/download/%{name}-bg-%{version}.tar.gz
 # Source1-md5:	e8c6567b13d7fb760bded56c1d1a181d
 Source2:	%{name}.desktop
 Source3:	Escreen.desktop
+Source4:	gnome-eterm.png
 Patch0:		%{name}-am_fix.patch
 Patch1:		%{name}-twin.patch
 Patch2:		%{name}-keys-theme.patch
+Patch3:		%{name}-deadkeys.patch
+Patch4:		%{name}-gcc4.patch
 URL:		http://www.eterm.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
@@ -77,6 +80,8 @@ korzystanie z pseudo-przezroczysto¶ci.
 %patch0 -p1
 %patch1 -p1
 %patch2	-p1
+%patch3 -p0
+%patch4 -p1
 find themes/ -name "*.cfg*" -exec \
 	sed -i 's/<Eterm-0\.9\..>/<Eterm-%{version}>/' "{}" ";"
 
@@ -106,13 +111,14 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_desktopdir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE4} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -134,6 +140,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_datadir}/Eterm
 %{_desktopdir}/*
+%{_pixmapsdir}/*
 
 %files -n Esetroot
 %defattr(644,root,root,755)
