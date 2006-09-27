@@ -3,28 +3,25 @@ Summary(es):	Terminal para Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
 Summary(pt_BR):	Eterm versão %{version}
 Name:		Eterm
-Version:	0.9.3
-Release:	3
+Version:	0.9.4
+Release:	1
 License:	BSD
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	dd089fa7768f945341d721dd4942c702
+# Source0-md5:	b8869ee9c9b9516231af9eefa595cee3
 Source1:	http://www.eterm.org/download/%{name}-bg-%{version}.tar.gz
 # Source1-md5:	e8c6567b13d7fb760bded56c1d1a181d
 Source2:	%{name}.desktop
 Source3:	Escreen.desktop
 Source4:	gnome-eterm.png
 Patch0:		%{name}-am_fix.patch
-Patch1:		%{name}-twin.patch
-Patch2:		%{name}-keys-theme.patch
-Patch3:		%{name}-deadkeys.patch
-Patch4:		%{name}-gcc4.patch
+Patch1:		%{name}-keys-theme.patch
 URL:		http://www.eterm.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	freetype1-devel
 BuildRequires:	imlib2-devel >= 1.0.3
-BuildRequires:	libast-devel >= 0.5
+BuildRequires:	libast-devel >= 0.6
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
@@ -78,10 +75,7 @@ korzystanie z pseudo-przezroczysto¶ci.
 %prep
 %setup -q -a1
 %patch0 -p1
-%patch1 -p1
-%patch2	-p1
-%patch3 -p0
-%patch4 -p1
+%patch1	-p1
 find themes/ -name "*.cfg*" -exec \
 	sed -i 's/<Eterm-0\.9\..>/<Eterm-%{version}>/' "{}" ";"
 
@@ -92,21 +86,29 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-static \
-	--enable-shared \
-	--enable-escreen \
-	--enable-etwin \
-	--enable-profile \
-	--disable-stack-trace \
-	--without-debugging \
-	--enable-trans \
-	--enable-multi-charset \
-	--enable-auto-encoding \
+	--disable-static	\
+	--enable-shared		\
+	--enable-escreen	\
+	--enable-etwin		\
+	--enable-escreen-fx	\
+	--enable-profile	\
+	--enable-trans		\
 %ifarch athlon
-	--enable-mmx
+	--enable-mmx		\
 %else
-	--disable-mmx
+	--disable-mmx		\
 %endif
+%ifarch %{x8664}
+	--enable-sse2		\
+%else
+	--disable-sse2		\
+%endif
+	--enable-utmp		\
+	--enable-auto-encoding	\
+	--enable-multi-charset	\
+	--disable-stack-trace	\
+	--enable-name-reporting-escapes \
+	--without-debugging
 %{__make}
 
 %install
