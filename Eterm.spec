@@ -1,3 +1,14 @@
+#
+# Conditional build:
+%bcond_with	mmx		# use MMX instructions
+%bcond_with	sse2		# use SSE2 instructions
+#
+%ifarch athlon pentium3 pentium4
+%define		with_mmx	1
+%endif
+%ifarch %{x8664}
+%define		with_sse2	1
+%endif
 Summary:	Terminal for Enlightenment
 Summary(es):	Terminal para Enlightenment
 Summary(pl):	Terminal dla Enlightenmenta
@@ -75,12 +86,11 @@ korzystanie z pseudo-przezroczysto¶ci.
 %prep
 %setup -q -a1
 %patch0 -p1
-%patch1	-p1
+%patch1 -p1
 find themes/ -name "*.cfg*" -exec \
 	sed -i 's/<Eterm-0\.9\..>/<Eterm-%{version}>/' "{}" ";"
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -93,12 +103,12 @@ rm -f missing
 	--enable-escreen-fx	\
 	--enable-profile	\
 	--enable-trans		\
-%ifarch athlon
+%if %{with mmx}
 	--enable-mmx		\
 %else
 	--disable-mmx		\
 %endif
-%ifarch %{x8664}
+%if %{with sse2}
 	--enable-sse2		\
 %else
 	--disable-sse2		\
