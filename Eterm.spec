@@ -72,16 +72,17 @@ Enlightenment, ou simplesmente queiram algo mais agradável para os
 olhos. O Eterm usa a Imlib para trabalhar com gráficos.
 
 %package -n Esetroot
-Summary:	Sets root pixmap
+Summary:	Utility to set root pixmap
 Summary(pl):	Aplikacja ustawiaj±ca t³o nadrzêdnego okna
 Group:		X11/Window Managers/Tools
  
 %description -n Esetroot
-This program enables non-Enlightenment users to use pseudotransparency.
+This program enables non-Enlightenment users to use
+pseudotransparency.
 
 %description -n Esetroot -l pl
-Program ten umo¿liwia u¿ytkownikom zarz±dców okien innych ni¿ Enlightenment
-korzystanie z pseudo-przezroczysto¶ci.
+Program ten umo¿liwia korzystanie z pseudoprzezroczysto¶ci
+u¿ytkownikom zarz±dców okien innych ni¿ Enlightenment.
 
 %prep
 %setup -q -a1
