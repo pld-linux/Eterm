@@ -152,7 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_mandir}/man1/*
 %{_datadir}/Eterm
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 
 %files -n Esetroot
