@@ -10,9 +10,9 @@
 %define		with_sse2	1
 %endif
 Summary:	Terminal for Enlightenment
-Summary(es.UTF-8):   Terminal para Enlightenment
-Summary(pl.UTF-8):   Terminal dla Enlightenmenta
-Summary(pt_BR.UTF-8):   Eterm versão %{version}
+Summary(es.UTF-8):	Terminal para Enlightenment
+Summary(pl.UTF-8):	Terminal dla Enlightenmenta
+Summary(pt_BR.UTF-8):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.4
 Release:	1
@@ -73,7 +73,7 @@ olhos. O Eterm usa a Imlib para trabalhar com gráficos.
 
 %package -n Esetroot
 Summary:	Utility to set root pixmap
-Summary(pl.UTF-8):   Aplikacja ustawiająca tło nadrzędnego okna
+Summary(pl.UTF-8):	Aplikacja ustawiająca tło nadrzędnego okna
 Group:		X11/Window Managers/Tools
  
 %description -n Esetroot
