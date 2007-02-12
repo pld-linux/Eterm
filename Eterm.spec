@@ -10,9 +10,9 @@
 %define		with_sse2	1
 %endif
 Summary:	Terminal for Enlightenment
-Summary(es):	Terminal para Enlightenment
-Summary(pl):	Terminal dla Enlightenmenta
-Summary(pt_BR):	Eterm versão %{version}
+Summary(es.UTF-8):   Terminal para Enlightenment
+Summary(pl.UTF-8):   Terminal dla Enlightenmenta
+Summary(pt_BR.UTF-8):   Eterm versÃ£o %{version}
 Name:		Eterm
 Version:	0.9.4
 Release:	1
@@ -49,40 +49,40 @@ replacement for users who want a term program integrated with
 Enlightenment, or simply want a little more "eye candy". Eterm uses
 Imlib for advanced graphic abilities.
 
-%description -l es
+%description -l es.UTF-8
 Eterm es un emulador de terminal vt102 con soporte para colores,
 desarrollado como un sustituto para el emulador xterm, para los
 usuarios que deseen un emulador de terminal integrado con la
-iluminación, o simplemente deseen algo más agradable visualmente. El
-emulador Eterm usa Imlib para trabajar con gráficos.
+iluminaciÃ³n, o simplemente deseen algo mÃ¡s agradable visualmente. El
+emulador Eterm usa Imlib para trabajar con grÃ¡ficos.
 
-%description -l pl
-Eterm jest kolorowym emulatorem terminala vt102 mog±cym byæ
-zamiennikiem xterm(1) dla u¿ytkowników chc±cych mieæ program
-terminalowy zintegrowany z zarz±dc± okienek o nazwie Enlightenment lub
-dla tych którzy chc± mieæ trochê bardziej urozmaicony wygl±d tego typu
-programu. Eterm u¿ywa biblioteki IMlib do zaawansowanego operowania na
+%description -l pl.UTF-8
+Eterm jest kolorowym emulatorem terminala vt102 mogÄ…cym byÄ‡
+zamiennikiem xterm(1) dla uÅ¼ytkownikÃ³w chcÄ…cych mieÄ‡ program
+terminalowy zintegrowany z zarzÄ…dcÄ… okienek o nazwie Enlightenment lub
+dla tych ktÃ³rzy chcÄ… mieÄ‡ trochÄ™ bardziej urozmaicony wyglÄ…d tego typu
+programu. Eterm uÅ¼ywa biblioteki IMlib do zaawansowanego operowania na
 grafice.
 
-%description -l pt_BR
-O Eterm -- versão %{version} -- é um emulador de terminal vt102 com
+%description -l pt_BR.UTF-8
+O Eterm -- versÃ£o %{version} -- Ã© um emulador de terminal vt102 com
 suporte a cores, desenvolvido para ser um substituto para o xterm,
-para os usuários que queiram um emulador de terminal integrado com o
-Enlightenment, ou simplesmente queiram algo mais agradável para os
-olhos. O Eterm usa a Imlib para trabalhar com gráficos.
+para os usuÃ¡rios que queiram um emulador de terminal integrado com o
+Enlightenment, ou simplesmente queiram algo mais agradÃ¡vel para os
+olhos. O Eterm usa a Imlib para trabalhar com grÃ¡ficos.
 
 %package -n Esetroot
 Summary:	Utility to set root pixmap
-Summary(pl):	Aplikacja ustawiaj±ca t³o nadrzêdnego okna
+Summary(pl.UTF-8):   Aplikacja ustawiajÄ…ca tÅ‚o nadrzÄ™dnego okna
 Group:		X11/Window Managers/Tools
  
 %description -n Esetroot
 This program enables non-Enlightenment users to use
 pseudotransparency.
 
-%description -n Esetroot -l pl
-Program ten umo¿liwia korzystanie z pseudoprzezroczysto¶ci
-u¿ytkownikom zarz±dców okien innych ni¿ Enlightenment.
+%description -n Esetroot -l pl.UTF-8
+Program ten umoÅ¼liwia korzystanie z pseudoprzezroczystoÅ›ci
+uÅ¼ytkownikom zarzÄ…dcÃ³w okien innych niÅ¼ Enlightenment.
 
 %prep
 %setup -q -a1
