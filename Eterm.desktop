@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=ETerm
 Comment=Enlightened Terminal Emulator for X Window
 Comment[pl]=Emulator terminala dla Systemu X Window dostosowany do Enlightenmenta
 Exec=Eterm
-Icon=gnome-eterm.png
+Icon=gnome-eterm
 Terminal=false
 Type=Application
 Categories=TerminalEmulator;

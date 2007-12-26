@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=EScreen
 Comment=Enlightened Terminal Emulator for X Window with screen support
 Comment[pl]=Emulator terminala dla Systemu X Window dostosowany do Enlightenmenta ze wsparciem dla screena
 Exec=Eterm -t Escreen
-Icon=gnome-eterm.png
+Icon=gnome-eterm
 Terminal=false
 Type=Application
 Categories=TerminalEmulator;
