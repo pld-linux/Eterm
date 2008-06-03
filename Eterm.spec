@@ -41,6 +41,7 @@ BuildRequires:	screen
 BuildRequires:	sed >= 4.0
 BuildRequires:	twin-devel
 BuildRequires:	utempter-devel
+BuildRequires:	xorg-lib-libXt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
