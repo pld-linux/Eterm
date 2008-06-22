@@ -27,6 +27,7 @@ Source3:	Escreen.desktop
 Source4:	gnome-eterm.png
 Patch0:		%{name}-am_fix.patch
 Patch1:		%{name}-keys-theme.patch
+Patch2:		%{name}-ac_am.patch
 URL:		http://www.eterm.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
@@ -89,6 +90,7 @@ użytkownikom zarządców okien innych niż Enlightenment.
 %setup -q -a1
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 find themes/ -name "*.cfg*" -exec \
 	sed -i 's/<Eterm-0\.9\..>/<Eterm-%{version}>/' "{}" ";"
 
