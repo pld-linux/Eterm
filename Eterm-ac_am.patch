@@ -1,0 +1,12 @@
+--- Eterm-0.9.4/configure.in.orig	2006-01-04 09:44:14.000000000 +0100
++++ Eterm-0.9.4/configure.in	2008-06-22 16:56:03.000000000 +0200
+@@ -120,7 +120,8 @@
+ 
+ dnl# At least make the attempt to support CygWin32
+ AC_CYGWIN
+-AC_ARG_PROGRAM
++
++AM_PROG_AS
+ 
+ AM_PROG_LIBTOOL
+ AC_PROG_LIBTOOL
