@@ -77,7 +77,8 @@ olhos. O Eterm usa a Imlib para trabalhar com gráficos.
 Summary:	Utility to set root pixmap
 Summary(pl.UTF-8):	Aplikacja ustawiająca tło nadrzędnego okna
 Group:		X11/Window Managers/Tools
- 
+Provides:	WallpaperChanger
+
 %description -n Esetroot
 This program enables non-Enlightenment users to use
 pseudotransparency.
@@ -162,4 +163,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/Esetroot
 %attr(755,root,root) %{_bindir}/kEsetroot
- 
