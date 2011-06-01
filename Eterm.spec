@@ -14,12 +14,12 @@ Summary(es.UTF-8):	Terminal para Enlightenment
 Summary(pl.UTF-8):	Terminal dla Enlightenmenta
 Summary(pt_BR.UTF-8):	Eterm versão %{version}
 Name:		Eterm
-Version:	0.9.5
+Version:	0.9.6
 Release:	1
 License:	BSD
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	87220a61f763d111a4f5fc88ef9e50f1
+# Source0-md5:	90e424584c22d4050496874d14f78bb1
 Source1:	http://www.eterm.org/download/%{name}-bg-%{version}.tar.gz
 # Source1-md5:	e8c6567b13d7fb760bded56c1d1a181d
 Source2:	%{name}.desktop
