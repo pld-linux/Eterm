@@ -15,7 +15,7 @@ Summary(pl.UTF-8):	Terminal dla Enlightenmenta
 Summary(pt_BR.UTF-8):	Eterm versão %{version}
 Name:		Eterm
 Version:	0.9.6
-Release:	1
+Release:	2
 License:	BSD
 Group:		X11/Applications
 Source0:	http://www.eterm.org/download/%{name}-%{version}.tar.gz
