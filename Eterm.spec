@@ -42,7 +42,9 @@ BuildRequires:	pcre-devel
 BuildRequires:	screen
 BuildRequires:	sed >= 4.0
 BuildRequires:	twin-devel
-BuildRequires:	xorg-lib-libXt-devel
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXres-devel
+BuildRequires:	xorg-lib-libXext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
