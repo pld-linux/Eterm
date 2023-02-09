@@ -1,0 +1,40 @@
+--- Eterm-0.9.6/src/pixmap.h.orig	2009-01-06 10:05:36.000000000 +0100
++++ Eterm-0.9.6/src/pixmap.h	2023-02-09 18:05:38.752800740 +0100
+@@ -221,7 +221,7 @@ _XFUNCPROTOBEGIN
+ extern const char *get_image_type(unsigned char);
+ extern unsigned char image_mode_any(unsigned char);
+ #ifdef PIXMAP_SUPPORT
+-extern const char *imlib_strerror(Imlib_Load_Error);
++extern const char *imlib_load_strerror(Imlib_Load_Error);
+ extern unsigned short parse_pixmap_ops(char *);
+ extern unsigned short set_pixmap_scale(const char *, pixmap_t *);
+ extern unsigned char check_image_ipc(unsigned char);
+--- Eterm-0.9.6/src/pixmap.c.orig	2011-03-16 07:09:23.000000000 +0100
++++ Eterm-0.9.6/src/pixmap.c	2023-02-09 18:06:11.255957989 +0100
+@@ -172,7 +172,7 @@ image_mode_any(unsigned char mode)
+ 
+ #ifdef PIXMAP_SUPPORT
+ const char *
+-imlib_strerror(Imlib_Load_Error err)
++imlib_load_strerror(Imlib_Load_Error err)
+ {
+     switch (err) {
+         case IMLIB_LOAD_ERROR_NONE:
+@@ -1447,7 +1447,7 @@ load_image(const char *file, simage_t *s
+         if (f) {
+             im = imlib_load_image_with_error_return(f, &im_err);
+             if (!im) {
+-                libast_print_error("Unable to load image file \"%s\" -- %s\n", file, imlib_strerror(im_err));
++                libast_print_error("Unable to load image file \"%s\" -- %s\n", file, imlib_load_strerror(im_err));
+                 return 0;
+             } else {
+                 reset_simage(simg, (RESET_IMLIB_IM | RESET_PMAP_PIXMAP | RESET_PMAP_MASK));
+@@ -2178,7 +2178,7 @@ set_icon_pixmap(char *filename, XWMHints
+ 
+             temp_im = imlib_load_image_with_error_return(icon_path, &im_err);
+             if (!temp_im) {
+-                libast_print_error("Unable to load icon file \"%s\" -- %s\n", icon_path, imlib_strerror(im_err));
++                libast_print_error("Unable to load icon file \"%s\" -- %s\n", icon_path, imlib_load_strerror(im_err));
+             } else {
+                 /* If we're going to render the image anyway, might as well be nice and give it to the WM in a size it likes. */
+                 if (XGetIconSizes(Xdisplay, Xroot, &icon_sizes, &count)) {

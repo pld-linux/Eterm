@@ -28,6 +28,7 @@ Source4:	gnome-eterm.png
 Patch0:		%{name}-am_fix.patch
 Patch1:		%{name}-keys-theme.patch
 Patch2:		%{name}-ac_am.patch
+Patch3:		%{name}-imlib.patch
 URL:		http://www.eterm.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
@@ -91,6 +92,8 @@ użytkownikom zarządców okien innych niż Enlightenment.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+
 find themes/ -name "*.cfg*" -exec \
 	sed -i 's/<Eterm-0\.9\..>/<Eterm-%{version}>/' "{}" ";"
 
@@ -98,7 +101,10 @@ find themes/ -name "*.cfg*" -exec \
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
+# libast 0.8.0 no longer defines MEMSET
+CPPFLAGS="%{rpmcppflags} -DMEMSET=memset"
 %configure \
 	--disable-static	\
 	--enable-shared		\
