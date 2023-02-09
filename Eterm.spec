@@ -138,9 +138,11 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir},%{_desktopdir},%{_pi
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE3} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE4} $RPM_BUILD_ROOT%{_pixmapsdir}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libEterm.{so,la}
+
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p %{SOURCE3} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p %{SOURCE4} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -157,12 +159,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/Ettable
 %attr(755,root,root) %{_bindir}/Etbg_update_list
 %attr(755,root,root) %{_bindir}/Etsearch
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_mandir}/man1/*
+%attr(755,root,root) %{_libdir}/libEterm-%{version}.so
+%{_mandir}/man1/Eterm.1*
 %{_datadir}/Eterm
-%{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
+%{_desktopdir}/Escreen.desktop
+%{_desktopdir}/Eterm.desktop
+%{_pixmapsdir}/gnome-eterm.png
 
 %files -n Esetroot
 %defattr(644,root,root,755)
