@@ -91,10 +91,10 @@ użytkownikom zarządców okien innych niż Enlightenment.
 
 %prep
 %setup -q -a1
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 
 find themes/ -name "*.cfg*" -exec \
 	sed -i 's/<Eterm-0\.9\..>/<Eterm-%{version}>/' "{}" ";"
